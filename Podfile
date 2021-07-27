@@ -7,6 +7,7 @@ target 'MyLibs' do
 
   # Pods for MyLibs
   pod 'YYKit'
- pod 'AFNetworking'
+  pod 'AFNetworking'
+  pod 'Masonry'
 
 end
