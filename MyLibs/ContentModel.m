@@ -24,7 +24,7 @@
     if (_demoArray == nil) {
         _demoArray = @[
                        //常见的锁的使用
-                       @[@"dispatch_semaphore"],
+                       @[@"dispatch_semaphore",@"dispatch_barrier",@"pthread_rwlock_t"],
                        ];
     }
     return _demoArray;
@@ -37,7 +37,9 @@
         
         _describeDict = @{
                           //信号的基本使用
-                          @"Semaphore":@"通过信号量可以控制同时访问资源的线程个数,例如 YYSafeDictionary",
+                          @"dispatch_semaphore":@"通过信号量可以控制同时访问资源的线程个数,例如 YYSafeDictionary",
+                          @"dispatch_barrier":@"通过栅栏函数阻塞自创建并发队列，实现同步任务,例如 AFHTTPRequestSerializer",
+                          @"pthread_rwlock_t":@"pthread 读写锁",
                           };
     }
     return _describeDict;

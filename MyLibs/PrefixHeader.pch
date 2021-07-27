@@ -16,5 +16,6 @@
 #import <objc/message.h>
 #import <Masonry/Masonry.h>
 #import "YYSafeDictViewController.h"
+#import "AFBarrierViewController.h"
 
 #endif /* PrefixHeader_pch */

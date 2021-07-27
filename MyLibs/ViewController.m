@@ -66,7 +66,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString *type = self.contentModel.demoArray[indexPath.section][indexPath.row];
-    ( (void (*) (id, SEL)) objc_msgSend ) (self, NSSelectorFromString(type));
+    if ([self respondsToSelector:NSSelectorFromString(type)]) {
+        ( (void (*) (id, SEL)) objc_msgSend ) (self, NSSelectorFromString(type));
+    }
+
 }
 - (UITableView *)tbView{
     
@@ -90,6 +93,13 @@
 //信号量
 - (void)dispatch_semaphore{
     YYSafeDictViewController * m = [YYSafeDictViewController new];
+    [self.navigationController pushViewController:m animated:YES];
+}
+
+//栅栏函数
+
+-(void)dispatch_barrier{
+    AFBarrierViewController * m = [AFBarrierViewController new];
     [self.navigationController pushViewController:m animated:YES];
 }
 @end
