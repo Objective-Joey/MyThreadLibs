@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - Masonry (1.1.0)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -21,20 +24,23 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - FMDB
   - Masonry
   - YYKit
 
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - FMDB
     - Masonry
     - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: be4243c3b59afa8fc9b301a7263d682241bcce10
+PODFILE CHECKSUM: 85d470fdf18069f59b5ba9e0e5bec31295c1857a
 
 COCOAPODS: 1.10.0

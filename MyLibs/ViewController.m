@@ -102,4 +102,15 @@
     AFBarrierViewController * m = [AFBarrierViewController new];
     [self.navigationController pushViewController:m animated:YES];
 }
+
+-(void)synchronized{
+    SynchronizedViewController * m = [SynchronizedViewController new];
+    [self.navigationController pushViewController:m animated:YES];
+}
+
+-(void)Threaded_Programming{
+    AppleThreadGuideViewController * m = [AppleThreadGuideViewController new];
+    [self.navigationController pushViewController:m animated:YES];
+}
+
 @end

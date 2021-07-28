@@ -17,5 +17,6 @@
 #import <Masonry/Masonry.h>
 #import "YYSafeDictViewController.h"
 #import "AFBarrierViewController.h"
-
+#import "SynchronizedViewController.h"
+#import "AppleThreadGuideViewController.h"
 #endif /* PrefixHeader_pch */

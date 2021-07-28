@@ -17,6 +17,8 @@
 		D5F3462426AFE936001677F2 /* ContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F3462226AFE936001677F2 /* ContentModel.m */; };
 		D5F3462A26AFF0A5001677F2 /* YYSafeDictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F3462926AFF0A5001677F2 /* YYSafeDictViewController.m */; };
 		D5F3476D26B01115001677F2 /* AFBarrierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F3476C26B01115001677F2 /* AFBarrierViewController.m */; };
+		D5F3478226B0327F001677F2 /* SynchronizedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F3478126B0327F001677F2 /* SynchronizedViewController.m */; };
+		D5F3478726B03A37001677F2 /* AppleThreadGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F3478626B03A37001677F2 /* AppleThreadGuideViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,10 @@
 		D5F3462926AFF0A5001677F2 /* YYSafeDictViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSafeDictViewController.m; sourceTree = "<group>"; };
 		D5F3476B26B01115001677F2 /* AFBarrierViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFBarrierViewController.h; sourceTree = "<group>"; };
 		D5F3476C26B01115001677F2 /* AFBarrierViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFBarrierViewController.m; sourceTree = "<group>"; };
+		D5F3478026B0327F001677F2 /* SynchronizedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynchronizedViewController.h; sourceTree = "<group>"; };
+		D5F3478126B0327F001677F2 /* SynchronizedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SynchronizedViewController.m; sourceTree = "<group>"; };
+		D5F3478526B03A37001677F2 /* AppleThreadGuideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleThreadGuideViewController.h; sourceTree = "<group>"; };
+		D5F3478626B03A37001677F2 /* AppleThreadGuideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppleThreadGuideViewController.m; sourceTree = "<group>"; };
 		EBB8839AFC1D54CE0A029357 /* Pods_MyLibs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyLibs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +96,8 @@
 				D5F3457126AFDEA4001677F2 /* AppDelegate.m */,
 				D5F3457626AFDEA5001677F2 /* ViewController.h */,
 				D5F3457726AFDEA5001677F2 /* ViewController.m */,
+				D5F3478526B03A37001677F2 /* AppleThreadGuideViewController.h */,
+				D5F3478626B03A37001677F2 /* AppleThreadGuideViewController.m */,
 				D5F3457926AFDEA5001677F2 /* Main.storyboard */,
 				D5F3457C26AFDEA8001677F2 /* Assets.xcassets */,
 				D5F3457E26AFDEA8001677F2 /* LaunchScreen.storyboard */,
@@ -112,6 +120,10 @@
 		D5F3462726AFF080001677F2 /* 锁 */ = {
 			isa = PBXGroup;
 			children = (
+				D5F3478426B033F4001677F2 /* Atomic */,
+				D5F3478326B033E4001677F2 /* NSLock */,
+				D5F3477F26B03252001677F2 /* synchronized */,
+				D5F3477E26B03092001677F2 /* 串行队列 */,
 				D5F3477726B01B39001677F2 /* pthread 读写锁 */,
 				D5F3476A26B010E3001677F2 /* 栅栏 */,
 				D5F3462626AFF073001677F2 /* 信号量 */,
@@ -133,6 +145,36 @@
 			children = (
 			);
 			path = "pthread 读写锁";
+			sourceTree = "<group>";
+		};
+		D5F3477E26B03092001677F2 /* 串行队列 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "串行队列";
+			sourceTree = "<group>";
+		};
+		D5F3477F26B03252001677F2 /* synchronized */ = {
+			isa = PBXGroup;
+			children = (
+				D5F3478026B0327F001677F2 /* SynchronizedViewController.h */,
+				D5F3478126B0327F001677F2 /* SynchronizedViewController.m */,
+			);
+			path = synchronized;
+			sourceTree = "<group>";
+		};
+		D5F3478326B033E4001677F2 /* NSLock */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSLock;
+			sourceTree = "<group>";
+		};
+		D5F3478426B033F4001677F2 /* Atomic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Atomic;
 			sourceTree = "<group>";
 		};
 		F45D9CFEE615319FEC61A3C5 /* Pods */ = {
@@ -257,9 +299,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F3478226B0327F001677F2 /* SynchronizedViewController.m in Sources */,
 				D5F3457826AFDEA5001677F2 /* ViewController.m in Sources */,
 				D5F3462426AFE936001677F2 /* ContentModel.m in Sources */,
 				D5F3457226AFDEA5001677F2 /* AppDelegate.m in Sources */,
+				D5F3478726B03A37001677F2 /* AppleThreadGuideViewController.m in Sources */,
 				D5F3476D26B01115001677F2 /* AFBarrierViewController.m in Sources */,
 				D5F3458326AFDEA8001677F2 /* main.m in Sources */,
 				D5F3462A26AFF0A5001677F2 /* YYSafeDictViewController.m in Sources */,

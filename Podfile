@@ -9,5 +9,6 @@ target 'MyLibs' do
   pod 'YYKit'
   pod 'AFNetworking'
   pod 'Masonry'
+  pod 'FMDB'
 
 end
