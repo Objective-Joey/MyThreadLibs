@@ -34,7 +34,6 @@
     //七：操作依赖
     //[self addDependency];
     //八: 通信
-
     [self messageInterThread];
 }
 

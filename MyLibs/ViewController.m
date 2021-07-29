@@ -118,4 +118,16 @@
     WPOperationViewController * m = [WPOperationViewController new];
     [self.navigationController pushViewController:m animated:YES];
 }
+
+-(void)GCD_Demo{
+    
+    WPGCDViewController * m = [WPGCDViewController new];
+    [self.navigationController pushViewController:m animated:YES];
+    
+}
+
+-(void)dispatch_group_demo{
+    WPDispathGroupViewController * m = [WPDispathGroupViewController new];
+    [self.navigationController pushViewController:m animated:YES];
+}
 @end

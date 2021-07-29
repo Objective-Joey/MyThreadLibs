@@ -21,5 +21,8 @@
 #import "AppleThreadGuideViewController.h"
 #import "WPOperationViewController.h"
 #import "WPOperation.h"
+#import "WPGCDViewController.h"
+
+#import "WPDispathGroupViewController.h"
 
 #endif /* PrefixHeader_pch */
