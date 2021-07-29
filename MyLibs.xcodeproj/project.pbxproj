@@ -19,6 +19,8 @@
 		D5F3476D26B01115001677F2 /* AFBarrierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F3476C26B01115001677F2 /* AFBarrierViewController.m */; };
 		D5F3478226B0327F001677F2 /* SynchronizedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F3478126B0327F001677F2 /* SynchronizedViewController.m */; };
 		D5F3478726B03A37001677F2 /* AppleThreadGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F3478626B03A37001677F2 /* AppleThreadGuideViewController.m */; };
+		D5F348CF26B1698D001677F2 /* WPOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F348CE26B1698D001677F2 /* WPOperationViewController.m */; };
+		D5F34D4026B2582A001677F2 /* WPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F34D3F26B2582A001677F2 /* WPOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,10 @@
 		D5F3478126B0327F001677F2 /* SynchronizedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SynchronizedViewController.m; sourceTree = "<group>"; };
 		D5F3478526B03A37001677F2 /* AppleThreadGuideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleThreadGuideViewController.h; sourceTree = "<group>"; };
 		D5F3478626B03A37001677F2 /* AppleThreadGuideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppleThreadGuideViewController.m; sourceTree = "<group>"; };
+		D5F348CD26B1698D001677F2 /* WPOperationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPOperationViewController.h; sourceTree = "<group>"; };
+		D5F348CE26B1698D001677F2 /* WPOperationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPOperationViewController.m; sourceTree = "<group>"; };
+		D5F34D3E26B2582A001677F2 /* WPOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPOperation.h; sourceTree = "<group>"; };
+		D5F34D3F26B2582A001677F2 /* WPOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPOperation.m; sourceTree = "<group>"; };
 		EBB8839AFC1D54CE0A029357 /* Pods_MyLibs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyLibs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -217,6 +223,10 @@
 		D5F3482626B1394D001677F2 /* NSOpertion */ = {
 			isa = PBXGroup;
 			children = (
+				D5F348CD26B1698D001677F2 /* WPOperationViewController.h */,
+				D5F348CE26B1698D001677F2 /* WPOperationViewController.m */,
+				D5F34D3E26B2582A001677F2 /* WPOperation.h */,
+				D5F34D3F26B2582A001677F2 /* WPOperation.m */,
 			);
 			path = NSOpertion;
 			sourceTree = "<group>";
@@ -405,9 +415,11 @@
 			files = (
 				D5F3478226B0327F001677F2 /* SynchronizedViewController.m in Sources */,
 				D5F3457826AFDEA5001677F2 /* ViewController.m in Sources */,
+				D5F34D4026B2582A001677F2 /* WPOperation.m in Sources */,
 				D5F3462426AFE936001677F2 /* ContentModel.m in Sources */,
 				D5F3457226AFDEA5001677F2 /* AppDelegate.m in Sources */,
 				D5F3478726B03A37001677F2 /* AppleThreadGuideViewController.m in Sources */,
+				D5F348CF26B1698D001677F2 /* WPOperationViewController.m in Sources */,
 				D5F3476D26B01115001677F2 /* AFBarrierViewController.m in Sources */,
 				D5F3458326AFDEA8001677F2 /* main.m in Sources */,
 				D5F3462A26AFF0A5001677F2 /* YYSafeDictViewController.m in Sources */,

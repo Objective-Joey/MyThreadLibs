@@ -112,5 +112,10 @@
     AppleThreadGuideViewController * m = [AppleThreadGuideViewController new];
     [self.navigationController pushViewController:m animated:YES];
 }
-
+-(void)NSOperation_Demo{
+    
+    
+    WPOperationViewController * m = [WPOperationViewController new];
+    [self.navigationController pushViewController:m animated:YES];
+}
 @end

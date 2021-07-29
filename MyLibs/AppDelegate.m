@@ -46,6 +46,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSConditionLock * m;
+    //https://www.codenong.com/cs105373345/
 }
 
 @end

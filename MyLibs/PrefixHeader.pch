@@ -19,4 +19,7 @@
 #import "AFBarrierViewController.h"
 #import "SynchronizedViewController.h"
 #import "AppleThreadGuideViewController.h"
+#import "WPOperationViewController.h"
+#import "WPOperation.h"
+
 #endif /* PrefixHeader_pch */

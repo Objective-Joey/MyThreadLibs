@@ -14,7 +14,7 @@
     
     if (_headNameArray == nil) {
 //        _headNameArray = @[@"Lock",@"GCD",@"NSOperation",@"NSOperationQueue",@"NSThread", @"_pthread",@"Atomic",@"信号"];
-        _headNameArray = @[@"About Threaded Programming",@"Lock"];
+        _headNameArray = @[@"About Threaded Programming",@"Lock",@"NSOpertion"];
     }
     return _headNameArray;
 }
@@ -23,11 +23,11 @@
     
     if (_demoArray == nil) {
         _demoArray = @[
-        
-                        @[@"Threaded_Programming"],
-                       //常见的锁的使用
-                       @[@"dispatch_semaphore",@"dispatch_barrier",@"pthread_rwlock_t",@"serial_queue",@"synchronized"]
-                       ];
+        @[@"Threaded_Programming"],
+        //常见的锁的使用
+        @[@"dispatch_semaphore",@"dispatch_barrier",@"pthread_rwlock_t",@"serial_queue",@"synchronized"],
+        @[@"NSOperation_Demo"]
+        ];
     }
     return _demoArray;
 }
@@ -46,7 +46,8 @@
                           @"dispatch_barrier":@"通过栅栏函数阻塞自创建并发队列，实现同步任务,例如 AFHTTPRequestSerializer",
                           @"pthread_rwlock_t":@"pthread 读写锁",
                           @"serial_queue":@"使用串行队列，避免竞态，例如：FMDB",
-                          @"synchronized":@"@synchronized结构所做的事情跟锁（lock）类似：它防止不同的线程同时执行同一段代码。但在某些情况下，相比于使用 NSLock 创建锁对象、加锁和解锁来说，@synchronized 用着更方便，可读性更高。"
+                          @"synchronized":@"@synchronized结构所做的事情跟锁（lock）类似：它防止不同的线程同时执行同一段代码。但在某些情况下，相比于使用 NSLock 创建锁对象、加锁和解锁来说，@synchronized 用着更方便，可读性更高。",
+                          @"NSOperation_Demo":@"NSOperation是苹果提供给我们的一套多线程解决方案。实际上NSOperation是基于GCD更高一层的封装，但是比GCD更简单易用、代码可读性也更高。",
                           };
     }
     return _describeDict;
