@@ -28,11 +28,14 @@
     //五：maxConcurrentOperationCount设置 并发或串行
     //[self addMaxConcurrentOperation];
     //六：定义继承自NSOperation的子类
-    [self addChildNSOperation1];
+    //[self addChildNSOperation1];
     //[self addChildNSOperation2];
 //    [self configTestView];
     //七：操作依赖
     //[self addDependency];
+    //八: 通信
+
+    [self messageInterThread];
 }
 
 //------------------------------------------------------------------------------------------
@@ -306,5 +309,32 @@
     //输出
 //    addDependency2当前线程<NSThread: 0x60000027c200>{number = 12, name = (null)}
 //    addDependency1当前线程<NSThread: 0x608000262900>{number = 9, name = (null)}
+}
+
+#pragma mark - 线程通信
+
+-(void)messageInterThread{
+    // 嵌套即可
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"addDependency1当前线程%@", [NSThread  currentThread]);
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            NSLog(@"回到主线程 当前线程%@", [NSThread  currentThread]);
+        }];
+    }];
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"addDependency2当前线程%@", [NSThread  currentThread]);
+    }];
+//    [op2 setQueuePriority:NSOperationQueuePriorityHigh];
+    op1.completionBlock = ^{
+        NSLog(@"任务完成 当前线程%@", [NSThread  currentThread]);
+    };
+    
+    [queue addOperation:op1];
+    [queue addOperation:op2];
+
 }
 @end
