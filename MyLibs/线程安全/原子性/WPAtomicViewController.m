@@ -6,16 +6,22 @@
 //
 
 #import "WPAtomicViewController.h"
+#import <WebKit/WKWebView.h>
+
 
 @interface WPAtomicViewController ()
-@property(atomic,strong) NSDictionary * dic;
+@property (strong,nonatomic)WKWebView *wkWebView;
 @end
 
 @implementation WPAtomicViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+    [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://blog.csdn.net/weixin_39950838/article/details/107832407"]]];
+    [self.view addSubview:self.wkWebView];
 }
 
 //atomic所说的线程安全只是保证了getter和setter存取方法的线程安全，并不能保证整个对象是线程安全的。
@@ -33,11 +39,14 @@
 
 //
 
-#warning 关键点 是这样子吗？
+#warning 关键点 自旋锁 atomic
 
 //property 的 atomic 是采用 spinlock_t 也就是俗称的自旋锁实现的.
 //
 //自旋锁会忙等: 所谓忙等，即在访问被锁资源时，调用者线程不会休眠，而是不停循环在那里，直到被锁资源释放锁。
 //互斥锁会休眠: 所谓休眠，即在访问被锁资源时，调用者线程会休眠，此时cpu可以调度其他线程工作。直到被锁资源释放锁。此时会唤醒休眠线程。
 
+//讲解
+
+//https://blog.csdn.net/weixin_39950838/article/details/107832407
 @end
