@@ -142,4 +142,10 @@
     WPMessageInterThreadViewController * m = [WPMessageInterThreadViewController new];
     [self.navigationController pushViewController:m animated:YES];
 }
+-(void)osAtomic_demo{
+    WPInfoWebViewController * m = [WPInfoWebViewController new];
+    m.url = @"https://www.cnblogs.com/cwgk/p/4226194.html";
+    [self.navigationController pushViewController:m animated:YES];
+}
+
 @end

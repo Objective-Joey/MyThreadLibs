@@ -13,7 +13,6 @@
 - (NSArray *)headNameArray {
     
     if (_headNameArray == nil) {
-//        _headNameArray = @[@"Lock",@"GCD",@"NSOperation",@"NSOperationQueue",@"NSThread", @"_pthread",@"Atomic",@"信号"];
         _headNameArray = @[@"About Threaded Programming",@"Lock",@"NSOpertion",@"GCD",@"同步工具",@"线程安全",@"其他"];
     }
     return _headNameArray;
@@ -25,10 +24,10 @@
         _demoArray = @[
         @[@"Threaded_Programming"],
         //常见的锁的使用
-        @[@"dispatch_semaphore",@"dispatch_barrier",@"pthread_rwlock_t",@"serial_queue",@"synchronized"],
+        @[@"dispatch_semaphore",@"dispatch_barrier",@"pthread_rwlock_t",@"serial_queue",@"synchronized",@"lock_demo"],
         @[@"NSOperation_Demo"],
         @[@"GCD_Demo"],
-        @[@"dispatch_group_demo"],
+        @[@"dispatch_group_demo",@"osAtomic_demo"],
         @[@"thread_safe_atomic_demo"],
         @[@"message_inter_thread"]
         ];
@@ -55,7 +54,9 @@
                           @"GCD_Demo":@"C风格基于线程池分配，简单易用",
                           @"dispatch_group_demo":@"GCD 异步队列同步",
                           @"thread_safe_atomic_demo":@"关于原子性",
-                          @"message_inter_thread":@"线程通信的方法总结"
+                          @"message_inter_thread":@"线程通信的方法总结",
+                          @"lock_demo":@"编写多线程代码最重要的一点是：对共享数据的访问要加锁。",
+                          @"osAtomic_demo":@"原子操作(Atomic Operations)满足只有一个线程可以访问Shared data, 同时不需要加锁。OSAtomic是OS X的原子操作库。例如 ReactiveObjC ",
                           };
     }
     return _describeDict;

@@ -10,5 +10,7 @@ target 'MyLibs' do
   pod 'AFNetworking'
   pod 'Masonry'
   pod 'FMDB'
-
+  pod 'ReactiveObjC'
+  pod 'GlobalTimer'
+  pod 'MSWeakTimer'
 end
