@@ -24,5 +24,7 @@
 #import "WPGCDViewController.h"
 
 #import "WPDispathGroupViewController.h"
-
+#import "WPAtomicViewController.h"
+#import "WPInfoWebViewController.h"
+#import "WPMessageInterThreadViewController.h"
 #endif /* PrefixHeader_pch */

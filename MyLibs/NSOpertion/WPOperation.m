@@ -23,13 +23,9 @@
         mainRunloop = [NSRunLoop currentRunLoop];
         [mainRunloop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
         mainThread = [NSThread currentThread];
-        
 //        NSLog(@"当前线程_______%@",mainThread);
         //[self TestRunloopState];
-        
-        
         [self setHasNewData:YES];
-        
         while(!self.cancelled) {
             NSLog(@"Begin runloop");
             BOOL result = [mainRunloop runMode:NSDefaultRunLoopMode
@@ -37,6 +33,11 @@
             
             NSLog(@"End runloop. %@",[NSNumber numberWithBool:result]);
         }
+        
+        //上面这段代码等效 [mainRunloop run];
+        //因为run的工作也是循环调用 runMode:beforeDate: 方法，形成无限循环
+        //if no input sources or timers are attached to the run loop, this method exits immediately; otherwise, it runs the receiver in the NSDefaultRunLoopMode by repeatedly invoking runMode:beforeDate:. In other words, this method effectively begins an infinite loop that processes data from the run loop’s input sources and timers.
+        //runloop 本质是个无限循环 处理事件源 和定时任务
     }
 }
 

@@ -6,8 +6,8 @@
 //
 
 #import "WPMessageInterThreadViewController.h"
-
-@interface WPMessageInterThreadViewController ()
+#import "WPMessageViewModel.h"
+@interface WPMessageInterThreadViewController ()<NSPortDelegate>
 
 @property (strong, nonatomic) NSThread *testThread;
 @end
@@ -16,9 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     // Do any additional setup after loading the view.
     //通信1 线程切换
     //通信2 线程间传递数据
+    [self usePort];
 }
 //方法 1
 //此系列方法可以直接通信
@@ -56,9 +60,20 @@
 }
 //方法 4 NSMachPort
 -(void)usePort{
-    //没用过 也不想了解
+    // 仅作为参考 并没有认真研究
+    NSPort *port = [NSMachPort port];
+    port.delegate = self;
+    [[NSRunLoop currentRunLoop] addPort:port forMode:NSDefaultRunLoopMode];
+    [NSThread detachNewThreadSelector:@selector(passMessage:) toTarget:
+    [WPMessageViewModel new] withObject:port];
+}
+
+- (void)handlePortMessage:(NSPortMessage *)message{
+    NSLog(@"子线程的消息%@", message);
 }
 #pragma mark -
 //数据共享
 //同步锁
+#pragma mark -
+//内存共享
 @end

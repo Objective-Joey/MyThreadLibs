@@ -14,7 +14,7 @@
     
     if (_headNameArray == nil) {
 //        _headNameArray = @[@"Lock",@"GCD",@"NSOperation",@"NSOperationQueue",@"NSThread", @"_pthread",@"Atomic",@"信号"];
-        _headNameArray = @[@"About Threaded Programming",@"Lock",@"NSOpertion",@"GCD",@"同步工具"];
+        _headNameArray = @[@"About Threaded Programming",@"Lock",@"NSOpertion",@"GCD",@"同步工具",@"线程安全",@"其他"];
     }
     return _headNameArray;
 }
@@ -29,6 +29,8 @@
         @[@"NSOperation_Demo"],
         @[@"GCD_Demo"],
         @[@"dispatch_group_demo"],
+        @[@"thread_safe_atomic_demo"],
+        @[@"message_inter_thread"]
         ];
     }
     return _demoArray;
@@ -52,6 +54,8 @@
                           @"NSOperation_Demo":@"NSOperation是苹果提供给我们的一套多线程解决方案。实际上NSOperation是基于GCD更高一层的封装，但是比GCD更简单易用、代码可读性也更高。",
                           @"GCD_Demo":@"C风格基于线程池分配，简单易用",
                           @"dispatch_group_demo":@"GCD 异步队列同步",
+                          @"thread_safe_atomic_demo":@"关于原子性",
+                          @"message_inter_thread":@"线程通信的方法总结"
                           };
     }
     return _describeDict;

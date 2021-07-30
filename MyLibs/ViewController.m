@@ -130,4 +130,16 @@
     WPDispathGroupViewController * m = [WPDispathGroupViewController new];
     [self.navigationController pushViewController:m animated:YES];
 }
+
+-(void)thread_safe_atomic_demo{
+    
+    WPAtomicViewController * m = [WPAtomicViewController new];
+    [self.navigationController pushViewController:m animated:YES];
+    
+}
+
+-(void)message_inter_thread{
+    WPMessageInterThreadViewController * m = [WPMessageInterThreadViewController new];
+    [self.navigationController pushViewController:m animated:YES];
+}
 @end
