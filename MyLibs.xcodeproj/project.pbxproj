@@ -123,11 +123,10 @@
 			isa = PBXGroup;
 			children = (
 				D5F34DE626B3C9D4001677F2 /* 多线程理论指导 */,
-				D5F3482926B13991001677F2 /* POSIX Threads */,
+				D7C638362861CCD6002B467D /* POSIX Threads */,
 				D5F3482326B138D1001677F2 /* NSThread */,
-				D5F3482726B13959001677F2 /* GCD */,
 				D5F3482626B1394D001677F2 /* NSOpertion */,
-				D5F3482226B138BC001677F2 /* RunLoop */,
+				D5F3482726B13959001677F2 /* GCD */,
 				D5F34DE226B3AF6D001677F2 /* 线程安全 */,
 				D5F3482D26B13A92001677F2 /* 其他 */,
 				D5F3462326AFE936001677F2 /* ContentModel.h */,
@@ -148,37 +147,32 @@
 			path = MyLibs;
 			sourceTree = "<group>";
 		};
-		D5F3462626AFF073001677F2 /* 信号量 */ = {
+		D5F3462626AFF073001677F2 /* Dispatch_semaphore */ = {
 			isa = PBXGroup;
 			children = (
-				D5F3482126B13835001677F2 /* NSCondition */,
 				D5F3462826AFF0A5001677F2 /* YYSafeDictViewController.h */,
 				D5F3462926AFF0A5001677F2 /* YYSafeDictViewController.m */,
 			);
-			path = "信号量";
+			path = Dispatch_semaphore;
 			sourceTree = "<group>";
 		};
 		D5F3462726AFF080001677F2 /* 同步工具 */ = {
 			isa = PBXGroup;
 			children = (
-				D5F34D4426B29F44001677F2 /* dispatch_group */,
-				D5F3478426B033F4001677F2 /* OSAtomic原子操作 */,
+				D7F5DBF928620A0B00A7570C /* 串行队列 */,
+				D7F5DBF8286209E100A7570C /* OSAtomic原子操作 */,
 				D5F3478326B033E4001677F2 /* 锁 */,
-				D5F3477F26B03252001677F2 /* synchronized */,
-				D5F3477E26B03092001677F2 /* 串行队列 */,
-				D5F3476A26B010E3001677F2 /* 栅栏 */,
-				D5F3462626AFF073001677F2 /* 信号量 */,
 			);
 			path = "同步工具";
 			sourceTree = "<group>";
 		};
-		D5F3476A26B010E3001677F2 /* 栅栏 */ = {
+		D5F3476A26B010E3001677F2 /* Dispatch_barrier */ = {
 			isa = PBXGroup;
 			children = (
 				D5F3476B26B01115001677F2 /* AFBarrierViewController.h */,
 				D5F3476C26B01115001677F2 /* AFBarrierViewController.m */,
 			);
-			path = "栅栏";
+			path = Dispatch_barrier;
 			sourceTree = "<group>";
 		};
 		D5F3477726B01B39001677F2 /* pthread_mutex */ = {
@@ -186,13 +180,6 @@
 			children = (
 			);
 			path = pthread_mutex;
-			sourceTree = "<group>";
-		};
-		D5F3477E26B03092001677F2 /* 串行队列 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "串行队列";
 			sourceTree = "<group>";
 		};
 		D5F3477F26B03252001677F2 /* synchronized */ = {
@@ -207,31 +194,11 @@
 		D5F3478326B033E4001677F2 /* 锁 */ = {
 			isa = PBXGroup;
 			children = (
+				D5F3477F26B03252001677F2 /* synchronized */,
 				D5F3482526B13920001677F2 /* NSLock */,
 				D5F3477726B01B39001677F2 /* pthread_mutex */,
 			);
 			path = "锁";
-			sourceTree = "<group>";
-		};
-		D5F3478426B033F4001677F2 /* OSAtomic原子操作 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "OSAtomic原子操作";
-			sourceTree = "<group>";
-		};
-		D5F3482126B13835001677F2 /* NSCondition */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NSCondition;
-			sourceTree = "<group>";
-		};
-		D5F3482226B138BC001677F2 /* RunLoop */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RunLoop;
 			sourceTree = "<group>";
 		};
 		D5F3482326B138D1001677F2 /* NSThread */ = {
@@ -266,17 +233,13 @@
 		D5F3482726B13959001677F2 /* GCD */ = {
 			isa = PBXGroup;
 			children = (
+				D7C638352861CC13002B467D /* DispatchSource */,
 				D5F34DE526B3C9AC001677F2 /* DIspathQueue */,
-				D5F34DE426B3C996001677F2 /* DispathSource */,
+				D5F34D4426B29F44001677F2 /* Dispatch_group */,
+				D5F3462626AFF073001677F2 /* Dispatch_semaphore */,
+				D5F3476A26B010E3001677F2 /* Dispatch_barrier */,
 			);
 			path = GCD;
-			sourceTree = "<group>";
-		};
-		D5F3482926B13991001677F2 /* POSIX Threads */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "POSIX Threads";
 			sourceTree = "<group>";
 		};
 		D5F3482A26B13A35001677F2 /* 线程间通信 */ = {
@@ -290,48 +253,35 @@
 			path = "线程间通信";
 			sourceTree = "<group>";
 		};
-		D5F3482B26B13A66001677F2 /* 线程优先级 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "线程优先级";
-			sourceTree = "<group>";
-		};
 		D5F3482D26B13A92001677F2 /* 其他 */ = {
 			isa = PBXGroup;
 			children = (
+				D7F5DBFC28620B4100A7570C /* 通知的底层原理 */,
+				D7F5DBFA28620A3100A7570C /* 线程优先级 */,
 				D5F3462726AFF080001677F2 /* 同步工具 */,
 				D5F3482F26B13AD7001677F2 /* 线程保活 */,
-				D5F3482E26B13AA3001677F2 /* 通知和通知队列 */,
 				D5F3482A26B13A35001677F2 /* 线程间通信 */,
-				D5F3482B26B13A66001677F2 /* 线程优先级 */,
 			);
 			path = "其他";
-			sourceTree = "<group>";
-		};
-		D5F3482E26B13AA3001677F2 /* 通知和通知队列 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "通知和通知队列";
 			sourceTree = "<group>";
 		};
 		D5F3482F26B13AD7001677F2 /* 线程保活 */ = {
 			isa = PBXGroup;
 			children = (
+				D7C638372861CD00002B467D /* RunLoop */,
 				D5F34DEA26B3D07B001677F2 /* WPThreadAliveViewController.h */,
 				D5F34DEB26B3D07B001677F2 /* WPThreadAliveViewController.m */,
 			);
 			path = "线程保活";
 			sourceTree = "<group>";
 		};
-		D5F34D4426B29F44001677F2 /* dispatch_group */ = {
+		D5F34D4426B29F44001677F2 /* Dispatch_group */ = {
 			isa = PBXGroup;
 			children = (
 				D5F34D4526B2A16E001677F2 /* WPDispathGroupViewController.h */,
 				D5F34D4626B2A16E001677F2 /* WPDispathGroupViewController.m */,
 			);
-			path = dispatch_group;
+			path = Dispatch_group;
 			sourceTree = "<group>";
 		};
 		D5F34DE226B3AF6D001677F2 /* 线程安全 */ = {
@@ -351,13 +301,6 @@
 			path = "原子性";
 			sourceTree = "<group>";
 		};
-		D5F34DE426B3C996001677F2 /* DispathSource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DispathSource;
-			sourceTree = "<group>";
-		};
 		D5F34DE526B3C9AC001677F2 /* DIspathQueue */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +317,55 @@
 				D5F3478626B03A37001677F2 /* AppleThreadGuideViewController.m */,
 			);
 			path = "多线程理论指导";
+			sourceTree = "<group>";
+		};
+		D7C638352861CC13002B467D /* DispatchSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DispatchSource;
+			sourceTree = "<group>";
+		};
+		D7C638362861CCD6002B467D /* POSIX Threads */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "POSIX Threads";
+			sourceTree = "<group>";
+		};
+		D7C638372861CD00002B467D /* RunLoop */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RunLoop;
+			sourceTree = "<group>";
+		};
+		D7F5DBF8286209E100A7570C /* OSAtomic原子操作 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "OSAtomic原子操作";
+			sourceTree = "<group>";
+		};
+		D7F5DBF928620A0B00A7570C /* 串行队列 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "串行队列";
+			sourceTree = "<group>";
+		};
+		D7F5DBFA28620A3100A7570C /* 线程优先级 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "线程优先级";
+			sourceTree = "<group>";
+		};
+		D7F5DBFC28620B4100A7570C /* 通知的底层原理 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "通知的底层原理";
 			sourceTree = "<group>";
 		};
 		F45D9CFEE615319FEC61A3C5 /* Pods */ = {

@@ -133,6 +133,10 @@
     
     NSLog(@"asyncConcurrent---end");
     
+    dispatch_suspend(queue);
+    
+    dispatch_source_cancel()
+    
     
     //输出内容：
 //    asyncConcurrent---begin
