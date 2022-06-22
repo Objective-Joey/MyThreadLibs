@@ -161,7 +161,6 @@
 			children = (
 				D7F5DBF928620A0B00A7570C /* 串行队列 */,
 				D7F5DBF8286209E100A7570C /* OSAtomic原子操作 */,
-				D5F3478326B033E4001677F2 /* 锁 */,
 			);
 			path = "同步工具";
 			sourceTree = "<group>";
@@ -198,7 +197,8 @@
 				D5F3482526B13920001677F2 /* NSLock */,
 				D5F3477726B01B39001677F2 /* pthread_mutex */,
 			);
-			path = "锁";
+			name = "锁";
+			path = "../其他/同步工具/锁";
 			sourceTree = "<group>";
 		};
 		D5F3482326B138D1001677F2 /* NSThread */ = {
@@ -287,6 +287,7 @@
 		D5F34DE226B3AF6D001677F2 /* 线程安全 */ = {
 			isa = PBXGroup;
 			children = (
+				D5F3478326B033E4001677F2 /* 锁 */,
 				D5F34DE326B3AF76001677F2 /* 原子性 */,
 			);
 			path = "线程安全";

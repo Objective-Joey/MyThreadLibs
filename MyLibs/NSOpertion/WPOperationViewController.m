@@ -34,6 +34,7 @@
     //七：操作依赖
     //[self addDependency];
     //八: 通信
+    //九：考虑线程安全
     [self messageInterThread];
 }
 
@@ -71,13 +72,16 @@
 
 //- (BOOL)isSuspended; 判断暂停状态
 //------------------------------------------------------------------------------------------
+#pragma mark - 直接使用NSOperation的两个子类
 
+//在没有使用NSOperationQueue、单独使用NSInvocationOperation的情况下，NSInvocationOperation在主线程执行操作，并没有开启新线程。
 
-#pragma mark - 1
 //一：NSInvocationOperation子类+主队列  (主线程中执行)
 -(void)addOperationFormInvocation
 {
-    //NSOperationQueue *queue = [NSOperationQueue mainQueue];  //主队列 主线程  //[queue addOperation:op];进行加入动作  //不用写[op start];便可执行
+    //NSOperationQueue *queue = [NSOperationQueue mainQueue];  //主队列 主线程
+    //[queue addOperation:op];进行加入动作
+    //不用写[op start];便可执行
     
     // 1.创建NSInvocationOperation对象
     NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(runAction) object:nil];
@@ -86,13 +90,42 @@
     [op start];
 }
 
+
+//在其他线程使用子类 NSInvocationOperation
+
+-(void)operationFormOherThread
+{
+      
+    [NSThread detachNewThreadSelector:@selector(addOperationFormInvocation) toTarget:self withObject:nil];
+}
+
+//二：NSBlockOperation子类+主队列  (主线程中执行)
+- (void)useBlockOperation {
+    
+    // 1.创建 NSBlockOperation 对象
+    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2];          // 模拟耗时操作
+            NSLog(@"当前NSBlockOperatio执行的线程为n---%@", [NSThread currentThread]); // 打印当前线程
+        }
+    }];
+    
+    // 2.调用 start 方法开始执行操作
+    [op start];
+}
+//三：使用自定义继承自 NSOperation 的子类
+// 重写 main 重写start
+- (void)useCustomOperation {
+    // 1.创建 YSCOperation 对象
+    WPOperation *op = [[WPOperation alloc] init];
+    // 2.调用 start 方法开始执行操作
+    [op start];
+}
+
 -(void)runAction
 {
     NSLog(@"当前NSInvocationOperation执行的线程为：%@", [NSThread currentThread]);
     //输出：当前NSInvocationOperation执行的线程为：<NSThread: 0x600000071940>{number = 1, name = main}
-    
-    //说明
-//  在没有使用NSOperationQueue、单独使用NSInvocationOperation的情况下，NSInvocationOperation在主线程执行操作，并没有开启新线程。
 }
 
 #pragma mark - 2
@@ -123,7 +156,9 @@
 //三：使用子类- NSBlockOperation 主线程执行
 -(void)addOperationFormBlock
 {
-    //NSOperationQueue *queue = [NSOperationQueue mainQueue];  //主队列 主线程  //[queue addOperation:op];进行加入动作  //不用写[op start];便可执行
+    //NSOperationQueue *queue = [NSOperationQueue mainQueue];  //主队列 主线程
+    //[queue addOperation:op];进行加入动作
+    //不用写[op start];便可执行
     
     NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
         // 在主线程
@@ -336,5 +371,58 @@
     [queue addOperation:op1];
     [queue addOperation:op2];
 
+}
+#pragma mark - 设置优先级
+//就绪状态下，优先级高的会优先执行，但是执行时间长短并不是一定的，所以优先级高的并不是一定会先执行完毕
+- (void)setQueuePriority
+{
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        
+        for (int i = 0; i < 2; i++) {
+            NSLog(@"1-----%@", [NSThread currentThread]);
+            [NSThread sleepForTimeInterval:2];
+        }
+    }];
+    [op1 setQueuePriority:(NSOperationQueuePriorityVeryLow)];
+    
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        
+        for (int i = 0; i < 2; i++) {
+            NSLog(@"2-----%@", [NSThread currentThread]);
+            [NSThread sleepForTimeInterval:2];
+        }
+    }];
+
+    [op2 setQueuePriority:(NSOperationQueuePriorityVeryHigh)];
+    
+    [queue addOperation:op1];
+    [queue addOperation:op2];
+}
+
+#pragma mark - 任务状态
+- (void)completionBlock {
+    // 1.创建队列
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    // 2.创建操作
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2];          // 模拟耗时操作
+            NSLog(@"1---%@", [NSThread currentThread]); // 打印当前线程
+        }
+    }];
+    
+    // 3.添加完成操作
+    op1.completionBlock = ^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2];          // 模拟耗时操作
+            NSLog(@"2---%@", [NSThread currentThread]); // 打印当前线程
+        }
+    };
+    
+    // 4.添加操作到队列中
+    [queue addOperation:op1];
 }
 @end
